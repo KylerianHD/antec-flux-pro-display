@@ -12,10 +12,24 @@ $ curl -fsSL https://raw.githubusercontent.com/nishtahir/antec-flux-pro-display/
 
 ### Using the Debian Package
 
-Download the latest debian package from the [releases](https://github.com/nishtahir/antec-flux-pro-display/releases) page.
+Download the latest Debian package from the [releases](https://github.com/nishtahir/antec-flux-pro-display/releases) page.
 
 ```bash
 sudo apt install your-download-path/af-pro-display.deb
+```
+
+### Arch Linux (AUR)
+
+Install using an AUR helper:
+```bash
+yay -S af-pro-display-bin
+# or
+paru -S af-pro-display-bin
+```
+
+Then enable the service:
+```bash
+sudo systemctl enable --now af-pro-display
 ```
 
 ### Building from Source
@@ -32,7 +46,7 @@ cd af-pro-display
 cargo build --release
 ```
 
-3. Build the debian package:
+3. Build the Debian package:
 ```bash
 cargo install cargo-deb
 cargo deb
@@ -42,7 +56,12 @@ The package will be created in `target/debian/`.
 
 ## Service Management
 
-After installation, the service will automatically start. You can manage it using systemd:
+After installation, the service will automatically start on Debian. On Arch Linux, enable it manually:
+```bash
+sudo systemctl enable --now af-pro-display
+```
+
+You can manage it using systemd:
 
 ```bash
 # Check service status
@@ -113,6 +132,7 @@ polling_interval = 200
 ## Resources
 * [cargo-deb](https://crates.io/crates/cargo-deb)
 * Inspired by previous work written by [AKoskovich](https://github.com/AKoskovich/antec_flux_pro_display_service)
+* [AUR package](https://aur.archlinux.org/packages/af-pro-display-bin) by [KylerianHD](https://github.com/KylerianHD/)
 
 ## License
 
