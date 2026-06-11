@@ -1,2 +1,3 @@
-SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", MODE="0666", GROUP="plugdev", TAG+="uaccess"
+# Antec Flux Pro display. The uaccess tag grants access to locally
+# logged-in users; the systemd service itself runs as root.
+SUBSYSTEM=="usb", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", TAG+="uaccess"
