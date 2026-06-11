@@ -10,6 +10,20 @@ This is a service that displays CPU and GPU temperatures on the [Antec Flux Pro]
 $ curl -fsSL https://raw.githubusercontent.com/nishtahir/antec-flux-pro-display/refs/heads/main/.ci/install.sh | bash 
 ```
 
+### Arch Linux
+
+The package is available on the AUR as [af-pro-display-bin](https://aur.archlinux.org/packages/af-pro-display-bin). Install it with your AUR helper of choice:
+
+```bash
+paru -S af-pro-display-bin
+```
+
+Then enable and start the service:
+
+```bash
+sudo systemctl enable --now af-pro-display.service
+```
+
 ### Using the Debian Package
 
 Download the latest debian package from the [releases](https://github.com/nishtahir/antec-flux-pro-display/releases) page.
@@ -78,12 +92,7 @@ lsusb | grep "2022:0522"
 ls -l /dev/bus/usb/$(lsusb | grep "2022:0522" | cut -d' ' -f2,4 | sed 's/:/\//')
 ```
 
-3. Verify group membership:
-```bash
-groups | grep plugdev
-```
-
-4. Check service logs for errors:
+3. Check service logs for errors:
 ```bash
 journalctl -u af-pro-display -n 50 --no-pager
 ```
