@@ -2,6 +2,10 @@
 
 This is a service that displays CPU and GPU temperatures on the [Antec Flux Pro](https://www.antec.com/product/case/flux-pro) display. It supports NVIDIA GPUs through NVML and reads CPU temperatures using system sensors.
 
+> [!NOTE]
+> This is a fork of [nishtahir/antec-flux-pro-display](https://github.com/nishtahir/antec-flux-pro-display).
+> It aims to solve the existing issues with the original and also serves as the potential continuation, as the original seems to no longer be actively maintained.
+
 ## Installation
 
 ### Quick Start (Recommended)
@@ -26,7 +30,7 @@ sudo systemctl enable --now af-pro-display.service
 
 ### Using the Debian Package
 
-Download the latest debian package from the [releases](https://github.com/nishtahir/antec-flux-pro-display/releases) page.
+Download the latest Debian package from the [releases](https://github.com/nishtahir/antec-flux-pro-display/releases) page.
 
 ```bash
 sudo apt install your-download-path/af-pro-display.deb
@@ -46,7 +50,7 @@ cd af-pro-display
 cargo build --release
 ```
 
-3. Build the debian package:
+3. Build the Debian package:
 ```bash
 cargo install cargo-deb
 cargo deb
